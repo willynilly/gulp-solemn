@@ -1,47 +1,45 @@
 {
-  "name": "gulp-solemn",
-  "description": "A gulp plugin for detecting inappropriate language in your code.",
-  "version": "1.0.0",
-  "homepage": "https://github.com/willynilly/grunt-solemn",
-  "author": {
-    "name": "Will Riley",
-    "email": "wanderingwill@gmail.com"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/willynilly/gulp-solemn.git"
-  },
-  "bugs": {
-    "url": "https://github.com/willynilly/gulp-solemn/issues"
-  },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/willynilly/gulp-solemn/blob/master/LICENSE-MIT"
+    "name": "gulp-solemn",
+    "description": "A gulp plugin for detecting inappropriate language in your code.",
+    "version": "1.1.0",
+    "homepage": "https://github.com/willynilly/grunt-solemn",
+    "author": {
+        "name": "Will Riley",
+        "email": "wanderingwill@gmail.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/willynilly/gulp-solemn.git"
+    },
+    "bugs": {
+        "url": "https://github.com/willynilly/gulp-solemn/issues"
+    },
+    "licenses": [{
+        "type": "MIT",
+        "url": "https://github.com/willynilly/gulp-solemn/blob/master/LICENSE-MIT"
+    }],
+    "engines": {
+        "node": ">= 0.8.0"
+    },
+    "main": "lib/gulp-solemn.js",
+    "scripts": {
+        "test": "node test/test.js"
+    },
+    "devDependencies": {
+        "gulp": "^3.9.1"
+    },
+    "keywords": [
+        "gulpplugin",
+        "profanity",
+        "javascript",
+        "css",
+        "static analysis"
+    ],
+    "dependencies": {
+        "gulp-util": "^3.0.7",
+        "lodash": "^4.12.0",
+        "solemn-css": "^1.2.0",
+        "solemn-js": "^1.2.0",
+        "through2": "^2.0.1"
     }
-  ],
-  "engines": {
-    "node": ">= 0.8.0"
-  },
-  "main": "lib/gulp-solemn.js",
-  "scripts": {
-    "test": "node test/test.js"
-  },
-  "devDependencies": {
-    "gulp": "^3.9.1"
-  },
-  "keywords": [
-    "gulpplugin",
-    "profanity",
-    "javascript",
-    "css",
-    "static analysis"
-  ],
-  "dependencies": {
-    "gulp-util": "^3.0.7",
-    "lodash": "^4.12.0",
-    "solemn-css": "^1.2.0",
-    "solemn-js": "^1.2.0",
-    "through2": "^2.0.1"
-  }
 }
