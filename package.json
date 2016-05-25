@@ -1,7 +1,7 @@
 {
     "name": "gulp-solemn",
     "description": "A gulp plugin for detecting inappropriate language in your code.",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "homepage": "https://github.com/willynilly/grunt-solemn",
     "author": {
         "name": "Will Riley",
@@ -23,7 +23,7 @@
     },
     "main": "lib/gulp-solemn.js",
     "scripts": {
-        "test": "node test/test.js"
+        "test": "nodeunit test/test.js"
     },
     "devDependencies": {
         "gulp": "^3.9.1"
@@ -40,6 +40,7 @@
         "lodash": "^4.12.0",
         "solemn-css": "^1.2.0",
         "solemn-js": "^1.2.0",
-        "through2": "^2.0.1"
+        "through2": "^2.0.1",
+        "stream-end": "^0.1.0"
     }
 }

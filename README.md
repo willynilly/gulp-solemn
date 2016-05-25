@@ -22,25 +22,64 @@ Every word must have at least one violation category.  If multiple dictionaries 
 ```js
 
 var gulp = require('gulp');
-var gulpSolemn = require('gulp-solemn');
+var solemn = require('gulp-solemn');
 
-var gulpSolemnCss = gulpSolemn('css');
-var gulpSolemnJs = gulpSolemn('js');
+// simple example
+var simpleSolemnOptions = {
+  printViolationMessages: true, // whether to print the violations to the console
+  includeDefaultDictionary: true, // whether to include the default dictionary as well
+};
 
-var gulpSolemnCssWithDictionary = gulpSolemn('css', ['test/fixtures/dictionary1.json', 'test/fixtures/dictionary2.json']);
-var gulpSolemnJsWithDictionary = gulpSolemn('js', ['test/fixtures/dictionary1.json', 'test/fixtures/dictionary2.json']);
+gulp.src(['**/*.css', '**/*.js]')
+    .pipe(solemn(simpleSolemnOptions))
 
-gulp.src('test/fixtures/*.js')
-    .pipe(gulpSolemnJs)
 
-gulp.src('test/fixtures/*.css')
-    .pipe(gulpSolemnCss)
+// load a custom custom dictionary and
+// do something with each file's set of violation objects
+var perFileSolemnOptions = {
+    fileViolationsCallback: function(fileName, violations, violationMessages) {
+      // the violations and corresponding violation messages for a particular file
+      console.log(fileName);
+      violations.forEach(function(violation) {
+        console.log(violation.file);
+        console.log(violation.issues);
+      });
+    },
+    dictionaries: ['test/fixtures/dictionary1.json', 'test/fixtures/dictionary2.json'],
+    includeDefaultDictionary: false,
+    printViolationMessages: false,
+};
 
-gulp.src('test/fixtures/*.js')
-    .pipe(gulpSolemnJsWithDictionary)
+gulp.src(['**/*.css', '**/*.js]')
+    .pipe(solemn(perFileSolemnOptions))
 
-gulp.src('test/fixtures/*.css')
-    .pipe(gulpSolemnCssWithDictionary)
+// load a custom custom dictionary and
+// do something with each file's set of violation objects
+var allFilesSolemnOptions = {
+    allViolationsCallback: function(violations, violationMessages) {
+      // the violations and corresponding violation messages for all files after they have been processed
+      violations.forEach(function(violation) {
+        console.log(violation.file);
+        console.log(violation.type);
+        console.log(violation.issues);
+        console.log(violation.line);
+        console.log(violation.column);
+        console.log(violation.text);
+      });
+
+      // already formatted violation messages
+      // same as what is printed when printViolationMessages === true
+      violationMessages.forEach(function(vm) {
+        console.log(vm);
+      })
+    },
+    dictionaries: ['test/fixtures/dictionary1.json', 'test/fixtures/dictionary2.json'],
+    includeDefaultDictionary: false,
+    printViolationMessages: false,
+};
+
+gulp.src(['**/*.css', '**/*.js]')
+    .pipe(solemn(perFileSolemnOptions))
 
 ```
 
