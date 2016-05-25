@@ -34,6 +34,17 @@ gulp.src(['**/*.css', '**/*.js'])
     .pipe(solemn(simpleSolemnOptions))
 
 
+// custom reporter example
+var simpleSolemnOptions = {
+  printViolationMessages: true,
+  reporter: function(violationMessage) {
+    console.log(violationMessage);
+  }
+};
+
+gulp.src(['**/*.css', '**/*.js'])
+    .pipe(solemn(simpleSolemnOptions))
+
 // load a custom custom dictionary and
 // do something with each file's set of violation objects
 var perFileSolemnOptions = {

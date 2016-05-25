@@ -1,7 +1,7 @@
 {
     "name": "gulp-solemn",
     "description": "A gulp plugin for detecting inappropriate language in your code.",
-    "version": "1.2.1",
+    "version": "1.2.2",
     "homepage": "https://github.com/willynilly/grunt-solemn",
     "author": {
         "name": "Will Riley",

@@ -113,6 +113,26 @@ exports.gulpsolemn = {
         var solemn = gulpSolemn(options);
         that.srcFiles
             .pipe(solemn)
+    },
+
+    print_violation_messages: function(test) {
+        test.expect(1);
+        var messageCount = 0;
+        var that = this;
+        var options = {
+            printViolationMessages: true,
+            reporter: function(msg) {
+                console.log(msg);
+                messageCount += 1;
+            },
+        };
+        var solemn = gulpSolemn(options);
+        that.srcFiles
+            .pipe(solemn)
+            .pipe(end(function() {
+                test.equal(messageCount, 8);
+                test.done();
+            }))
     }
 
 
