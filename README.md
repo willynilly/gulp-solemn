@@ -30,7 +30,7 @@ var simpleSolemnOptions = {
   includeDefaultDictionary: true, // whether to include the default dictionary as well
 };
 
-gulp.src(['**/*.css', '**/*.js]')
+gulp.src(['**/*.css', '**/*.js'])
     .pipe(solemn(simpleSolemnOptions))
 
 
@@ -50,7 +50,7 @@ var perFileSolemnOptions = {
     printViolationMessages: false,
 };
 
-gulp.src(['**/*.css', '**/*.js]')
+gulp.src(['**/*.css', '**/*.js'])
     .pipe(solemn(perFileSolemnOptions))
 
 // load a custom custom dictionary and
@@ -78,7 +78,7 @@ var allFilesSolemnOptions = {
     printViolationMessages: false,
 };
 
-gulp.src(['**/*.css', '**/*.js]')
+gulp.src(['**/*.css', '**/*.js'])
     .pipe(solemn(perFileSolemnOptions))
 
 ```
