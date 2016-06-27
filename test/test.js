@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var gulpSolemn = require('gulp-solemn');
+var gulpSolemn = require('../lib/gulp-solemn');
 var end = require('stream-end');
 var _ = require('lodash');
 
